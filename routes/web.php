@@ -25,3 +25,9 @@ Route::get('/authors/{slug}', function ($slug) {
 
   return view('authors.show', compact('posts', 'authorName'));
 })->name('authors.show');
+
+Route::get('/tags/{tag}', function ($tag) {
+  $posts = Sheets::collection('posts')->all()->filter(fn(Post $post) => in_array($tag, ($post->tags ?? [])));
+
+  return view('tags.show', compact('posts', 'tag'));
+})->name('tags.show');

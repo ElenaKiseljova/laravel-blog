@@ -1,6 +1,6 @@
 <x-layout>
   <h1 class="text-3xl font-medium">
-    Latest posts
+    Tagged {{ $tag }}
   </h1>
 
   <x-post-list :posts="$posts" />

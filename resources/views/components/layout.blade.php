@@ -19,7 +19,8 @@
 
 <body class="">
   <div class=" max-w-screen-md px-5 py-10 mx-auto">
-
+    <header class=" w-full flex justify-center mb-6 text-4xl font-bold text-center"><a
+        href="{{ route('posts.index') }}">{{ config('app.name') }}</a></header>
 
     {{ $slot }}
   </div>
