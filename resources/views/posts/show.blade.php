@@ -1,8 +1,8 @@
 <x-layout>
   <div class="mt-10 space-y-5 ">
-    <h1 class=" text-2xl">{{ $post->title }}</h1>
+    <h1 class=" text-3xl font-medium">{{ $post->title }}</h1>
 
-    <div class="text-sm text-gray-400">Posted {{ $post->date->diffForHumans() }} by {{ $post->author }}</div>
+    <x-post-meta :post="$post" />
 
     <div class="content space-y-3">{{ $post->contents }}</div>
   </div>

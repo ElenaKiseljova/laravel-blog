@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Post;
 use Illuminate\Support\Facades\Route;
 use Spatie\Sheets\Facades\Sheets;
 
@@ -16,3 +17,11 @@ Route::get('/posts/{slug}', function ($slug) {
 
   return view('posts.show', compact('post'));
 })->name('posts.show');
+
+Route::get('/authors/{slug}', function ($slug) {
+  $posts = Sheets::collection('posts')->all()->filter(fn(Post $post) => $post->author_slug === $slug);
+
+  $authorName = $posts->first()->author_name;
+
+  return view('authors.show', compact('posts', 'authorName'));
+})->name('authors.show');

@@ -19,9 +19,7 @@
 
 <body class="">
   <div class=" max-w-screen-md px-5 py-10 mx-auto">
-    <h1 class="text-3xl font-bold">
-      My personal Blog
-    </h1>
+
 
     {{ $slot }}
   </div>
