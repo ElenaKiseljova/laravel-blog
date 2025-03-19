@@ -11,14 +11,19 @@
 <body>
   <h1>My personal Blog</h1>
 
-  <ul>
-    <li>
-      <a href="{{ route('posts.show', 1) }}">Post 1</a>
-    </li>
-    <li>
-      <a href="{{ route('posts.show', 2) }}">Post 2</a>
-    </li>
-  </ul>
+  @if ($posts->count())
+
+    <ul>
+      @foreach ($posts as $post)
+        <li>
+          <a href="{{ route('posts.show', $post->slug) }}">{{ $post->slug }}</a>
+        </li>
+      @endforeach
+
+    </ul>
+  @else
+    No posts found
+  @endif
 </body>
 
 </html>
