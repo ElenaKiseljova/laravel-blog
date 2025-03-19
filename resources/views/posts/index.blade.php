@@ -1,6 +1,4 @@
-@extends('layout')
-
-@section('content')
+<x-layout>
   @if ($posts->count())
     <ul class="mt-10 space-y-10">
       @foreach ($posts as $post)
@@ -19,4 +17,4 @@
   @else
     No posts found
   @endif
-@endsection
+</x-layout>
