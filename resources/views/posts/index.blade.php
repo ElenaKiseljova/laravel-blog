@@ -1,25 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('layout')
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Laravel Blog</title>
-</head>
-
-<body>
-  <h1>My personal Blog</h1>
-
+@section('content')
   @if ($posts->count())
-
-    <ul>
+    <ul class="mt-10 space-y-10">
       @foreach ($posts as $post)
-        <li>
-          <h2><a href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a></h2>
+        <li class="space-y-5  ">
+          <h2 class="text-2xl font-medium">
+            <a class=" hover:text-indigo-700 transition-colors duration-75"
+              href="{{ route('posts.show', $post->slug) }}">{{ $post->title }}</a>
+          </h2>
 
           <div>{{ $post->excerpt }}</div>
-          <div>{{ $post->author }} / {{ $post->date->diffForHumans() }}</div>
+          <div class="text-sm text-gray-400">Posted {{ $post->date->diffForHumans() }} by {{ $post->author }}</div>
         </li>
       @endforeach
 
@@ -27,6 +19,4 @@
   @else
     No posts found
   @endif
-</body>
-
-</html>
+@endsection
